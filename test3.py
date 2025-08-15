@@ -1,3 +1,5 @@
+
+#another way to work 9_Aug Class...
 from fastapi import FastAPI
 from pydantic import BaseModel
 
@@ -21,12 +23,10 @@ class subtractModel(BaseModel):
     a: int
     b: int
 
-def subtract(a: int, b: int):
-    return a - b
-
-
 @app.post("/manas/pandey/xyz/subtract")
-def subtract_numbers(model: subtractModel):
-    return subtract(model.a , model.b)
+def subtract(payload: subtractModel):
+    return {"difference": payload.a - payload.b}
+
+
 
 print(add(3,4))
